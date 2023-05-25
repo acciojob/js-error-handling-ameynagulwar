@@ -1,4 +1,3 @@
-//your code here
 class OutOfRangeError extends Error {
   constructor() {
     super();
@@ -44,4 +43,24 @@ function evalString(expression) {
       throw error;
     }
   }
+}
+
+// Test cases
+try {
+  evalString("1 + 2"); // Valid expression
+  evalString("3 + a"); // Handling invalid char 1
+  evalString("4 + 5 +"); // Handling invalid char 3
+  evalString("-2 + 3"); // Should handle the addition of negative values
+  evalString("2 ++ 3"); // Combination of operator 1
+  evalString("/ 2 + 3"); // Invalid operator before the first integer
+  evalString("2 + 3 +"); // Should handle Invalid termination of expression.
+  evalString("6 % 2"); // Handling invalid char 2
+  evalString("8 + 9"); // Handling of spaces
+  evalString("2 * 4"); // Basic multiplication string
+  evalString("2 ++ 3"); // Invalid addition
+  evalString("7 - 5"); // Basic subtraction string
+  evalString("-5"); // Negative value
+  evalString("10 / 2"); // Basic division string
+} catch (error) {
+  console.error(error);
 }
